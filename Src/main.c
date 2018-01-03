@@ -53,7 +53,8 @@
 
 /* USER CODE BEGIN PV */
 /* Private variables ---------------------------------------------------------*/
-
+static uint8_t serviceEXTIFlag = 0;
+static uint16_t EXTIPin = 0;
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -106,7 +107,11 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-
+    if(serviceEXTIFlag)
+    {
+      HAL_GPIO_TogglePin(GPIOC, GPIO_PIN_6);
+      serviceEXTIFlag = 0;
+    }
   }
   /* USER CODE END WHILE */
 
@@ -192,7 +197,16 @@ void SystemClock_Config(void)
 }
 
 /* USER CODE BEGIN 4 */
-
+/**
+  * @brief  EXTI line detection callbacks.
+  * @param  GPIO_Pin: Specifies the pins connected EXTI line
+  * @retval None
+  */
+void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
+{
+  serviceEXTIFlag = 1;
+  EXTIPin = GPIO_Pin;
+}
 /* USER CODE END 4 */
 
 /**
