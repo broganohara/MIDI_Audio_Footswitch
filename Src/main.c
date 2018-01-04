@@ -195,6 +195,7 @@ void SystemClock_Config(void)
   /* SysTick_IRQn interrupt configuration */
   HAL_NVIC_SetPriority(SysTick_IRQn, 0, 0);
 }
+
 /* USER CODE BEGIN 4 */
 /**
   * @brief  EXTI line detection callbacks.

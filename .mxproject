@@ -1,7 +1,7 @@
 [PreviousGenFiles]
-HeaderPath=/Users/broganohara/Documents/Eclipse/MIDI_audio_footswitch/Inc
+HeaderPath=/Users/broganohara/Documents/Eclipse/MIDI_Audio_Footswitch/Inc
 HeaderFiles=gpio.h;dma.h;sai.h;spi.h;usart.h;stm32f7xx_it.h;stm32f7xx_hal_conf.h;main.h;
-SourcePath=/Users/broganohara/Documents/Eclipse/MIDI_audio_footswitch/Src
+SourcePath=/Users/broganohara/Documents/Eclipse/MIDI_Audio_Footswitch/Src
 SourceFiles=gpio.c;dma.c;sai.c;spi.c;usart.c;stm32f7xx_it.c;stm32f7xx_hal_msp.c;main.c;
 
 [PreviousLibFiles]

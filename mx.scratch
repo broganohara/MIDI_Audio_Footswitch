@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Project>
-<ProjectName>/Users/broganohara/Documents/Eclipse/MIDI_audio_footswitch/\MIDI_audio_footswitch</ProjectName>
+<ProjectName>/Users/broganohara/Documents/Eclipse/MIDI_Audio_Footswitch/\MIDI_audio_footswitch</ProjectName>
 <CMSIS>../Drivers/CMSIS</CMSIS>
 <HAL_Driver>/Users/broganohara/STM32Cube/Repository//STM32Cube_FW_F7_V1.8.0/Drivers/CMSIS</HAL_Driver>
 
