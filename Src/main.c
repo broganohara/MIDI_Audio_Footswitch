@@ -62,7 +62,7 @@ void SystemClock_Config(void);
 
 /* USER CODE BEGIN PFP */
 /* Private function prototypes -----------------------------------------------*/
-
+void toggleLED(uint16_t);
 /* USER CODE END PFP */
 
 /* USER CODE BEGIN 0 */
@@ -100,7 +100,7 @@ int main(void)
   MX_UART7_Init();
 
   /* USER CODE BEGIN 2 */
-  HAL_GPIO_WritePin(GPIOC, GPIO_PIN_6, GPIO_PIN_SET);
+
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -109,7 +109,7 @@ int main(void)
   {
     if(serviceEXTIFlag)
     {
-      HAL_GPIO_TogglePin(GPIOC, GPIO_PIN_6);
+      toggleLED(EXTIPin);
       serviceEXTIFlag = 0;
     }
   }
@@ -195,13 +195,59 @@ void SystemClock_Config(void)
   /* SysTick_IRQn interrupt configuration */
   HAL_NVIC_SetPriority(SysTick_IRQn, 0, 0);
 }
-
 /* USER CODE BEGIN 4 */
 /**
   * @brief  EXTI line detection callbacks.
   * @param  GPIO_Pin: Specifies the pins connected EXTI line
   * @retval None
   */
+void toggleLED(uint16_t GPIO_Pin)
+{
+  switch (GPIO_Pin)
+  {
+    case GPIO_PIN_3:
+      HAL_GPIO_TogglePin(GPIOB, GPIO_PIN_4);
+      break;
+
+    case GPIO_PIN_4:
+      HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_4);
+      break;
+
+    case GPIO_PIN_5:
+      HAL_GPIO_TogglePin(GPIOB, GPIO_PIN_3);
+      break;
+
+    case GPIO_PIN_6:
+      HAL_GPIO_TogglePin(GPIOB, GPIO_PIN_5);
+      break;
+
+    case GPIO_PIN_7:
+      HAL_GPIO_TogglePin(GPIOC, GPIO_PIN_7);
+      break;
+
+    case GPIO_PIN_8:
+      HAL_GPIO_TogglePin(GPIOC, GPIO_PIN_6);
+      break;
+
+    case GPIO_PIN_9:
+      HAL_GPIO_TogglePin(GPIOB, GPIO_PIN_15);
+      break;
+
+    case GPIO_PIN_10:
+      HAL_GPIO_TogglePin(GPIOB, GPIO_PIN_13);
+      break;
+
+    case GPIO_PIN_11:
+      HAL_GPIO_TogglePin(GPIOB, GPIO_PIN_12);
+      break;
+
+    case GPIO_PIN_12:
+      HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_15);
+      break;
+
+
+  }
+}
 void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
 {
   serviceEXTIFlag = 1;
